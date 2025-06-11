@@ -1,0 +1,178 @@
+<!--Navbar-->
+<head>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script src="{% static 'details.js' %}"></script>
+    <title>Movie booking</title>
+</head>
+
+    {% if user.is_authenticated %}
+    <section class="top-bar">
+        <div class="left-content">
+            <h2 class="title">FIND_YOUR_TICKET</h2>
+            <ul class="navigation">
+                <li><a href="#">Welcome, {{user.username}}</a></li>
+                <li><a class="active" href="home.html">Home</a></li>
+                <li><a href="#">Theaters</a></li>
+                <li><a href="logout">Logout</a></li>
+            </ul>
+        </div>
+        <div class="right-content">
+            <img src="{% static 'filter.png' %}" alt="" class="filter">
+            <img src="{% static 'cart.png' %}" alt="" class="cart">
+            <img src="{% static 'help.png' %}" alt="" class="help">
+            <div class="profile-img-box">
+                <img src="{% static 'profile.png' %}" alt="">
+            </div>
+            <img src="{% static 'menu.png' %}" alt="" class="menu">
+        </div>
+    </section>
+    <section class="main-container">
+        <div class="sidebar">
+            <form action="#">
+                <div class="sidebar-groups">
+                    <h3 class="sg-title">Categories</h3>
+                    <input type="checkbox" id="adventure" name="adventure" value="adventure">
+                    <label for="adventure">Adventure</label><br>
+                    <input type="checkbox" id="action" name="action" value="action">
+                    <label for="action">Action</label><br>
+                    <input type="checkbox" id="comedy" name="comedy" value="comedy">
+                    <label for="comedy">Comedy</label><br>
+                    <input type="checkbox" id="thriller" name="thriller" value="thriller">
+                    <label for="thriller">Thriller</label><br>
+                    <input type="checkbox" id="history" name="history" value="history">
+                    <label for="history">History</label><br>
+                    <input type="checkbox" id="documentary" name="documentary" value="documentary">
+                    <label for="documentary">Documentary</label><br>
+
+                </div>
+                <div class="sidebar-groups">
+                    <h3 class="sg-title">Language</h3>
+                    <input type="checkbox" id="english" name="english" value="english">
+                    <label for="english">English</label><br>
+                    <input type="checkbox" id="gujarati" name="gujarati" value="gujarati">
+                    <label for="gujarati">Gujarati</label><br>
+                    <input type="checkbox" id="hindi" name="hindi" value="hindi">
+                    <label for="hindi">Hindi</label><br>
+                </div>
+                <div class="sidebar-groups">
+                    <a href="#" class="btn-l btn">Apply Filters</a>
+                </div>
+            </form>
+        </div>
+        <div class="movies-container">
+            <div class="upcoming-img-box">
+                <img src="{% static 'savarkar.jpg' %}" alt="">
+                <p class="upcoming-title">Upcoming Movie</p>
+                <div class="buttons">
+                    <a href="#" class="btn">Details</a>
+                    <a href="https://www.youtube.com/watch?app=desktop&v=wVcPbg6xav8" class="btn-alt btn">Play Trailer</a>
+                </div>
+            </div>
+            <div class="current-movies">
+                <div class="current-movie">
+                    <div class="cm-img-box">
+                        <img src="{% static 'movie1.jpg' %}" alt="">
+                    </div>
+                    <h3 class="movie-title">Jurassic World</h3>
+                    <p class="screen-name">Screen : Platinum</p>
+                    <div class="booking">
+                        <h2 class="price">150 rs</h2>
+                        <a href="#" class="btn">Buy Tickets</a>
+                        <button class="btn" onclick="myFunction()">Details</button>
+                        
+                    </div>
+                    <div id="myDIV">
+                        A theme park showcasing genetically-engineered dinosaurs turns into a nightmare for its tourists when one of the dinosaurs escapes its enclosure. An ex-military animal expert steps up to save the day.
+Release date: 10 June 2015 (China)
+Director: Colin Trevorrow
+Budget: $150–215 million
+Distributed by: Universal Pictures
+Based on: Characters; by Michael Crichton
+Box office: $1.671 billion
+                        </div>
+                </div>
+                <div class="current-movie">
+                    <div class="cm-img-box">
+                        <img src="{% static 'movie2.jpg' %}" alt="">
+                    </div>
+                    <h3 class="movie-title">{{movie.movie_name}}</h3>
+                
+                    <p class="screen-name">Screen : Gold</p>
+                    <div class="booking">
+                        <h2 class="price">120 rs.</h2>
+                        <a href="#" class="btn">Buy Tickets</a>
+                        <button class="btn" onclick="myFunction1()">Details</button>
+                    </div>
+                    
+                    <div id="myDIV1">
+                        A special agent investigates a murder committed by a masked group of serial killers. However, a tangled maze of clues soon leads him to the drug kingpin of Chennai.
+                        Initial release: 3 June 2022
+                        Director: Lokesh Kanagaraj
+                        Budget: 120 crores INR
+                        Producers: Kamal Haasan, R Mahendran
+                        Distributed by: Red Giant Movies
+                    </div>                
+                </div>
+                <div class="current-movie">
+                    <div class="cm-img-box">
+                        <img src="{% static 'guj.jpeg' %}" alt="">
+                    </div>
+                    <h3 class="movie-title">Chhello Divas</h3>
+                    <p class="screen-name">Screen : Silver</p>
+                    <div class="booking">
+                        <h2 class="price">100 rs.</h2>
+                        <a href="#" class="btn">Buy Tickets</a>
+                        <button class="btn" onclick="myFunction2()">Details</button>
+                    </div>
+                    <div id="myDIV2">
+                        Eight young friends experience a series of adventures and misadventures as they make their gradual transition to adulthood in their last year of college.
+Release date: 20 November 2015 (India)
+Director: Krishnadev Yagnik
+Producers: Nilay Chotai, Aayush Mehta, Sharad Patel, Sandil Dang, Pranay Kabra
+Box office: 18 crores INR (US$2.3 million)
+Cinematography: Alex Mecwan
+Edited by: Nirav Panchal
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    {% else %}
+
+
+    <section class="top-bar">
+        <div class="left-content">
+            <h2 class="title">FIND_YOUR_TICKET</h2>
+            <ul class="navigation">
+                <li><a href="login">Login</a></li>
+            </ul>
+        </div>
+        <div class="right-content">
+            <img src="{% static 'filter.png' %}" alt="" class="filter">
+            <img src="{% static 'cart.png' %}" alt="" class="cart">
+            <img src="{% static 'help.png' %}" alt="" class="help">
+            <div class="profile-img-box">
+                <img src="{% static 'profile.png' %}" alt="">
+            </div>
+            <img src="{% static 'menu.png' %}" alt="" class="menu">
+        </div>
+    </section>
+
+
+    {% endif %}
+
+      
+
+
+
+            
+       
