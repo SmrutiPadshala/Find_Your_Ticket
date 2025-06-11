@@ -22,7 +22,7 @@ This is a Django-based web application named **Find Your Ticket** (or **Movie Bo
 1. **Clone the Repository**
    ```bash
    git clone https://github.com/SmrutiPadshala/Find_Your_Ticket.git
-   cd Find_Your_Ticket
+   cd sp_project
    ```
 
 2. **Create Virtual Environment**
